@@ -1,35 +1,57 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-// import { Grid } from 'semantic-ui-react';
-import { handleInitialData } from '../actions/sharedActions'; // <- new
-import { connect } from 'react-redux'; // <- new
+import { handleInitialData } from '../actions/sharedActions';
+import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import LoadingBar from 'react-redux-loading'
+
+import Login from './Login';
+import  NavigationBar from './NavigationBar';
 
 class App extends Component {
-  componentDidMount() { // <- new
-    this.props.handleInitialData(); // <- new
-  } // <- new
+  componentDidMount() {
+    this.props.handleInitialData();
+  }
   render() {
+    const { AuthenticateUser, dispatch } = this.props;
     return (
+
       <Router>
         <div className="App">
-          {/* <ContentGrid> */}
-            <p>New Start...</p>
-          {/* </ContentGrid> */}
+          <NavigationBar />
+          <LoadingBar />
+          {AuthenticateUser === null ? (
+            <Route
+              render={() => (
+                <Login />
+              )}
+            />
+          ) : (
+            <React.Fragment>
+              {/* <Nav /> */}
+              {/* <Route exact path="/" component={Home} /> */}
+              <Route exact path="/"
+                render={() => (
+                  <h2>logged in</h2>
+                )} />
+
+            </React.Fragment>
+          )}
+
         </div>
       </Router>
     );
   }
 }
 
-const ContentGrid = ({ children }) => (
-  <Grid padded="vertically" columns={1} centered>
-    <Grid.Row>
-      <Grid.Column style={{ maxWidth: 550 }}>{children}</Grid.Column>
-    </Grid.Row>
-  </Grid>
-);
+function mapStateToProps({ AuthenticateUser, users }) {
+  return {
+    AuthenticateUser,
+    users
+  };
+}
 
-export default connect( // <- new
-  null, // <- new
-  { handleInitialData } // <- new
-)(App); // <- new
+
+export default connect(
+  mapStateToProps,
+  { handleInitialData }
+)(App); 
