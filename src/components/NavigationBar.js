@@ -29,7 +29,7 @@ class NavigationBar extends Component {
 
     render() {
         const { AuthenticateUser, users } = this.props;
-s
+
         return (
 
             <Navbar bg="light" expand="lg">
