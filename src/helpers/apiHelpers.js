@@ -18,6 +18,6 @@ export function saveQuestionWrapper(info) {
   return _saveQuestion(info);
 }
 
-export function saveQuestionAnswerWrapper(info) {
-  return _saveQuestionAnswer(info);
+export function saveQuestionAnswerWrapper(authedUser, questionID, answer) {
+  return _saveQuestionAnswer({authedUser, qid: questionID, answer});
 }

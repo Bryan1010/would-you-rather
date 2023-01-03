@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
 import { handleInitialData } from '../actions/sharedActions';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading'
 
 import Login from './Login';
-import  NavigationBar from './NavigationBar';
+import NavigationBar from './NavigationBar';
+import QuestionListCard from './QuestionListCard';
+import Vote from './Vote';
+import Error from './Error';
+import LeaderBoard from './LeaderBoard';
+import NewPoll from './NewPoll';
 
 class App extends Component {
   componentDidMount() {
     this.props.handleInitialData();
   }
   render() {
-    const { AuthenticateUser, dispatch } = this.props;
+    const { AuthenticateUser } = this.props;
     return (
 
       <Router>
         <div className="App">
           <NavigationBar />
           <LoadingBar />
+
           {AuthenticateUser === null ? (
             <Route
               render={() => (
@@ -26,15 +32,24 @@ class App extends Component {
               )}
             />
           ) : (
-            <React.Fragment>
+
+            <Switch>
               {/* <Nav /> */}
               {/* <Route exact path="/" component={Home} /> */}
-              <Route exact path="/"
+              {/* <Route exact path="/"
                 render={() => (
                   <h2>logged in</h2>
-                )} />
+                )} /> */}
 
-            </React.Fragment>
+              <Route exact path="/" component={QuestionListCard} />
+
+              <Route exact path="/questions/:id" component={Vote} />
+
+              <Route exact path="/leaderboard" component={LeaderBoard} />
+              <Route exact path="/add" component={NewPoll} />
+
+              <Route component={Error} />
+            </Switch>
           )}
 
         </div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Container, Form, Button, Row } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";

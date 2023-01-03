@@ -2,19 +2,19 @@ let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: '',
+    avatarURL: '/sarah_edo.png',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
       "am8ehyc8byjqgar0jgpub9": 'optionTwo',
-      "loxhs1bqm25b708cmbf3g": 'optionTwo'
+      "loxhs1bqm25b708cmbf3g": 'optionTwo',
     },
     questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
   },
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: '',
+    avatarURL: '/tyler_mcginnis.png',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +24,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: '',
+    avatarURL: '/john_doe.png',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -111,6 +111,19 @@ let questions = {
     optionTwo: {
       votes: ['tylermcginnis'],
       text: 'write Swift'
+    },
+    "28495tirghfadsdofias": {
+      id: '28495tirghfadsdofias',
+      author: 'johndoe',
+      timestamp: 1493579767910,
+      optionOne: {
+        votes: [],
+        text: 'code',
+      },
+      optionTwo: {
+        votes: [],
+        text: 'not code'
+      }
     }
   },
 }

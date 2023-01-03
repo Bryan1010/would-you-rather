@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Navbar, NavDropdown, Nav } from "react-bootstrap";
+import { Container, Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -9,10 +9,10 @@ import { AuthenticateUserSetter } from '../actions/sharedActions';
 
 class NavigationBar extends Component {
 
-    findLoggedInUsername(){
+    findLoggedInUsername() {
         const { AuthenticateUser, users } = this.props;
 
-        if (AuthenticateUser === null || !users || users?.length === 0) {
+        if (AuthenticateUser == null || !users || users.length === 0) {
             return '';
         }
 
@@ -23,12 +23,11 @@ class NavigationBar extends Component {
     handleLogout = (e) => {
         e.preventDefault();
         this.props.AuthenticateUserSetter(null);
-       
-        NavLink('/')
+
     }
 
     render() {
-        const { AuthenticateUser, users } = this.props;
+        const { AuthenticateUser } = this.props;
 
         return (
 
@@ -38,6 +37,7 @@ class NavigationBar extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                         <Nav className="me-auto">
+                            <Nav.Link name="home" as={NavLink} to="/">Home</Nav.Link>
                             <Nav.Link name="new poll" as={NavLink} to="/add">New Poll</Nav.Link>
                             <Nav.Link name="leader board" as={NavLink} to="/leaderboard">Leader Board</Nav.Link>
                         </Nav>
@@ -67,5 +67,5 @@ function mapStateToProps({ users, AuthenticateUser }) {
 
 export default connect(
     mapStateToProps,
-    {AuthenticateUserSetter}
+    { AuthenticateUserSetter }
 )(NavigationBar);
