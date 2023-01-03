@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Would you rather (React nano degree - udacity)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is part of the react nanodegree by udacity.
+This web application was made with the purpose of learning redux and demostrating it's core concepts. The user is able to "log in" look at leaderboards, vote if they would rather do A or B, and submit questions for other users to answer.
+
+## How to run
+
+1. `npm install`
+2. `npm start`
 
 ## Available Scripts
 
