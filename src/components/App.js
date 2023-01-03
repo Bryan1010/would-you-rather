@@ -34,13 +34,7 @@ class App extends Component {
           ) : (
 
             <Switch>
-              {/* <Nav /> */}
-              {/* <Route exact path="/" component={Home} /> */}
-              {/* <Route exact path="/"
-                render={() => (
-                  <h2>logged in</h2>
-                )} /> */}
-
+              
               <Route exact path="/" component={QuestionListCard} />
 
               <Route exact path="/questions/:id" component={Vote} />
