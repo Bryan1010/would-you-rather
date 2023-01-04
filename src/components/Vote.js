@@ -64,6 +64,10 @@ class Vote extends Component {
     render() {
 
         const question = this.getQuestion();
+        
+        if(!question) {
+            this.props.history.push('/404')
+        }
 
         const author = this.getAuthorDetails(question.author);
         const currentUserAnswered = this.hasUserAnswered();

@@ -1,4 +1,3 @@
-import { act } from 'react-dom/test-utils';
 import { GET_USERS, ADD_ANSWER_TO_USER, ADD_QUESTION_TO_USER } from '../actions/userActions';
 
 export default function users(state = {}, action) {

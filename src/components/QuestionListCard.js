@@ -16,7 +16,7 @@ class QuestionListCard extends Component {
 
     getAnsweredQuestions() {
         const answered = Object.values(this.props.questions)
-        .sort((a,b) => (a.timestamp > b.timestamp) ? 1 : -1)
+        .sort((a,b) => (a.timestamp > b.timestamp) ? -1 : 1)
             .filter(q => this.checkIfUserIsPresentInArray(q.optionOne.votes)
                 || this.checkIfUserIsPresentInArray( q.optionTwo.votes))
         return answered;
@@ -25,7 +25,7 @@ class QuestionListCard extends Component {
 
     getUnansweredQuestions() {
         const unanswered = Object.values(this.props.questions)
-        .sort((a,b) => (a.timestamp > b.timestamp) ? 1 : -1)
+        .sort((a,b) => (a.timestamp > b.timestamp) ? -1 : 1)
             .filter(q => !this.checkIfUserIsPresentInArray(q.optionOne.votes)
                 && !this.checkIfUserIsPresentInArray( q.optionTwo.votes))
 
