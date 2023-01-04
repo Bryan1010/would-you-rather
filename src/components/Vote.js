@@ -67,6 +67,7 @@ class Vote extends Component {
         
         if(!question) {
             this.props.history.push('/404')
+            return null;
         }
 
         const author = this.getAuthorDetails(question.author);
